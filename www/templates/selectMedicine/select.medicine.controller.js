@@ -3,10 +3,10 @@
 
     angular
         .module('Allure')
-        .controller('LoginController', LoginController);
+        .controller('selectMedicineController', selectMedicineController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function LoginController($timeout, $state, UserService) {
+    function selectMedicineController($timeout, $state, UserService) {
         var vm = this;
 
         vm.login = login;

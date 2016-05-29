@@ -1,6 +1,12 @@
 /* Empty. Add your own CSS if you like */
 /* Utilities */
 
+@@font-face {
+  font-family: 'Raleway';
+  src:url('../fonts/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 .link {
     color: #116262;
     font-weight: bold;
@@ -210,4 +216,53 @@ p {
 }
 .platform-android .popover{
 margin-top:10px;
+}
+
+.bar.bar-assertive {
+  background-color: #00C0BF !important;
+}
+
+.center-div{
+  text-align: center;
+}
+
+.thick input[type='text']{
+  padding: 10px;
+  border: solid 4px #c9c9c9;
+  height: 45px;
+  width: 80%;
+  transition: : border 0.3s;
+  margin: 0 auto;
+  font-size: 16px;
+  border-radius: 0px;
+
+}
+
+.thick input[type='text']:focus,
+.thick input[type='text'].focus{
+  border: solid 4px #4D5252;
+}
+
+.flat button {
+  height: 45px;
+  width: 40%;
+  font-size: 16px;
+  color: #fff;
+  background-color: #00C0BF;
+  border: none;
+}
+
+.flat button:hover,
+.flat button.hover {
+  background-color: #028E8D;
+  text-shadow: -1px 1px #27496d;
+}
+
+.flat button:active,
+.flat button.active {
+  background-color: #028E8D;
+  text-shadow: -1px 1px #193047;
+}
+.greenhead{
+  color:#028E8D;
 }

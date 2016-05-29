@@ -52,32 +52,35 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
-    .state('app.ink', {
-        url: '/ink',
+    .state('app.searchMedicine', {
+        url: '/searchMedicine',
+        cache: false,
         views: {
             'menuContent': {
-                templateUrl: 'templates/ink.html',
-                controller: 'InkCtrl'
+                templateUrl: 'templates/searchMedicine/search.medicine.html',
+                controller: 'searchMedicineController as vm'
             }
         }
     })
 
-    .state('app.motion', {
-        url: '/motion',
+    .state('app.selectMedicine', {
+        url: '/selectMedicine',
+        cache: false,
         views: {
             'menuContent': {
-                templateUrl: 'templates/motion.html',
-                controller: 'MotionCtrl'
+                templateUrl: 'templates/selectMedicine/select.medicine.html',
+                controller: 'selectMedicineController as vm'
             }
         }
     })
 
-    .state('app.components', {
-        url: '/components',
+    .state('app.welcome', {
+        url: '/welcome',
+        cache: false,
         views: {
             'menuContent': {
-                templateUrl: 'templates/components.html',
-                controller: 'ComponentsCtrl'
+                templateUrl: 'templates/welcome/welcomeScreen.html',
+                controller: 'welcomeScreenController as vm'
             }
         }
     })

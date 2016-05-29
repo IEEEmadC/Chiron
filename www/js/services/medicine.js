@@ -3,10 +3,10 @@
 
     angular
         .module('Allure')
-        .service('UserService', UserService);
+        .service('MedicineService', MedicineService);
 
     // UserService.$inject = ['$timeout', '$filter', '$q'];
-    function UserService($timeout, $filter, $q) {
+    function MedicineService($timeout, $filter, $q) {
 
         var service = this;
 

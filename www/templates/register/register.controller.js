@@ -10,6 +10,7 @@
         var vm = this;
 
         vm.register = register;
+        vm.error = '';
         // login();
 
         // (function initController() {
@@ -22,12 +23,13 @@
           var result = UserService.register(vm.user);
           if (result.success){
             $timeout(function() {
+              vm.error = ''
                $state.go('login');
              }, 0);
             console.log('Register Success');
           }
           else{
-            console.log('Register Failed', result.error);
+            vm.error = result.error;
           }
           console.log('User list', UserService.getAllUsers());
         };

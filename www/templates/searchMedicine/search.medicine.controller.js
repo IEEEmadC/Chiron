@@ -3,16 +3,16 @@
 
     angular
         .module('Allure')
-        .controller('LoginController', LoginController);
+        .controller('searchMedicineController', searchMedicineController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function LoginController($timeout, $state, UserService) {
+    function searchMedicineController($timeout, $state, UserService) {
         var vm = this;
 
-        vm.login = login;
+        vm.searchMedicine = searchMedicine;
         vm.error = '';
 
-        function login() {
+        function searchMedicine() {
 
           var result = UserService.login(vm.username, vm.password);
           if (result.success){
