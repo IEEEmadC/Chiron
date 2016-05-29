@@ -14,6 +14,8 @@
     this.selectedMedicine;
     this.currentMedicineSalt;
     this.suggestions;
+    this.probableAllergicSalts = [];
+    this.definiteAllergicSalts = [];
     return service;
 
     //key: 19672e3aa4204c3de62095597d5947
@@ -22,8 +24,7 @@
     }
 
     function getSaltFromMedicine(medicine){
-      console.log('1:::::' + '/apiSaltFromMedicine' + '?id=' + medicine +'&key=' + '19672e3aa4204c3de62095597d5947');
-      return $http.get('/apiSaltFromMedicine' + '?id=' + medicine +'&key=' + '19672e3aa4204c3de62095597d5947');
+      return $http.get('/apiSaltFromMedicine?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
     }
 
   }

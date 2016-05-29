@@ -215,7 +215,7 @@ p {
     top: 16px !important;
 }
 .platform-android .popover{
-margin-top:10px;
+  margin-top:10px;
 }
 
 .bar.bar-assertive {
@@ -255,13 +255,17 @@ margin-top:10px;
 .flat button:hover,
 .flat button.hover {
   background-color: #028E8D;
-  text-shadow: -1px 1px #27496d;
 }
 
-.flat button:active,
+/*.flat button:active,
 .flat button.active {
   background-color: #028E8D;
   text-shadow: -1px 1px #193047;
+}*/
+.flat[disabled],
+.flat[disabled]:hover,
+.flat[disabled].hover {
+  background-color: #C7B5B8;
 }
 .greenhead{
   color:#028E8D;

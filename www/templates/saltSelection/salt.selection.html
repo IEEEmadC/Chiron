@@ -1,13 +1,23 @@
 <ion-view view-title="Select Salts">
   <ion-content>
-    <div class="im-wrapper">
-      <ion-list ng-show="vm.salts.length">
-        <ion-item ng-repeat="salt in vm.salts">
-          {{salt}}
-        </ion-item>
-      </ion-list>
+    <div class="im-wrapper" style="margin-top: 10%">
+      <div ng-show="vm.salts.length == 1">
+        <p>This medicine contains only 1 salt. Adding it will add the salt to 'Strictly Prohibited Salts List'</p>
+        <ion-checkbox style="margin-top: 10%" ng-show="vm.salts.length" ng-disabled="true" class="checkbox-dark" ng-repeat="salt in vm.salts" ng-model="salt.check" ng-checked="salt.check" ng-change="vm.pushChange()">
+            {{salt.name}}
+        </ion-checkbox>
+      </div>
+      <div ng-show="vm.salts.length > 1">
+      <p>This medicine contains multiple salts. Either select salts and add to <b>Strictly Prohibited Salts List</b>, else
+      select <b>I'm not sure</b> to add all the salts to <b>Probable Prohibited Salts List</b><p>
+      <ion-checkbox class="checkbox-dark" ng-show="vm.salts.length" ng-repeat="salt in vm.salts" ng-model="salt.check" ng-checked="salt.check" ng-change="vm.pushChange()">
+          {{salt.name}}
+      </ion-checkbox>
+      </div>
       <div class="flat center-div">
-      <button  style="margin-top: 5%" ng-click="vm.goBack()">Back</button>
+      <button style="margin-top: 5%" ng-hide="vm.salts.length == 1" ng-click="vm.notSure()">I'm not sure</button>
+      <button class="flat" style="margin-top: 5%" ng-click="vm.finalSure()" ng-disabled="!vm.checkSingleItemSelected()" >Save Selected Salts</button>
+      <button style="margin-top: 5%" ng-click="vm.goBack()">Back</button>
     </div>
   </div>
   </ion-content>
