@@ -74,6 +74,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.saltSelection', {
+        url: '/saltSelection',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/saltSelection/salt.selection.html',
+                controller: 'saltSelectionController as vm'
+            }
+        }
+    })
+
     .state('app.welcome', {
         url: '/welcome',
         cache: false,

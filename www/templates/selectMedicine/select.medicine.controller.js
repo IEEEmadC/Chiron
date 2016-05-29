@@ -6,25 +6,23 @@
         .controller('selectMedicineController', selectMedicineController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function selectMedicineController($timeout, $state, UserService) {
+    function selectMedicineController($timeout, $state, UserService, MedicineService, $ionicHistory) {
         var vm = this;
+        vm.sendBackToSearch = sendBackToSearch;
+        vm.suggestions = MedicineService.suggestions;
+        vm.selectedSuggestion;
+        vm.selectedS = selectedS;
 
-        vm.login = login;
-        vm.error = '';
+        return vm;
 
-        function login() {
+        function sendBackToSearch(){
+          $ionicHistory.goBack();
+        }
 
-          var result = UserService.login(vm.username, vm.password);
-          if (result.success){
-            $timeout(function() {
-               vm.error = '';
-               $state.go('app.welcome');
-             }, 0);
-          }
-          else{
-            vm.error = result.error;
-          }
-        };
+        function selectedS(selectedSuggestion){
+          MedicineService.selectedMedicine = selectedSuggestion;
+          $state.go('app.saltSelection');
+        }
     }
 
 })();

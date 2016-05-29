@@ -1,4 +1,14 @@
 {
   "name": "myApp",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/apiMedicineSuggestions",
+      "proxyUrl": "http://www.truemd.in/api/medicine_suggestions/"
+    },
+    {
+      "path": "/apiSaltFromMedicine",
+      "proxyUrl": "http://www.truemd.in/api/medicine_details/"
+    }
+    ]
 }

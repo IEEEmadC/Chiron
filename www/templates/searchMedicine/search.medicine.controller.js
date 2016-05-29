@@ -6,25 +6,34 @@
         .controller('searchMedicineController', searchMedicineController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function searchMedicineController($timeout, $state, UserService) {
+    function searchMedicineController($timeout, $state, UserService, MedicineService, $scope, $ionicLoading) {
         var vm = this;
 
         vm.searchMedicine = searchMedicine;
         vm.error = '';
 
         function searchMedicine() {
+          $ionicLoading.show({ template: '<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>' });
 
-          var result = UserService.login(vm.username, vm.password);
-          if (result.success){
-            $timeout(function() {
-               vm.error = '';
-               $state.go('app.welcome');
-             }, 0);
-          }
-          else{
-            vm.error = result.error;
-          }
-        };
-    }
+          MedicineService
+              .getMedicineSuggestions(vm.searchMedString)
+              .then(function(response) {
+                  vm.suggestions = response.data.response.suggestions;
+                  MedicineService.suggestions = makeList(vm.suggestions);
+                  $state.go('app.selectMedicine');
+                  $ionicLoading.hide();
+              }, function(error) {
+                  console.log(error);
+              });
+        }
+
+        function makeList(suggestions){
+          var suggestionList = [];
+          angular.forEach(suggestions, function(value){
+              suggestionList.push(value.suggestion);
+          });
+          return suggestionList;
+        }
+  }
 
 })();

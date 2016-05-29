@@ -31,7 +31,6 @@
               if (username === user.username){
                 if(password === user.password){
                   output.success = true;
-                  console.log('user', user);
                   setPresentUser(user);
                 }
                 else{

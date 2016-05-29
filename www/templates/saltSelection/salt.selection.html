@@ -1,0 +1,14 @@
+<ion-view view-title="Select Salts">
+  <ion-content>
+    <div class="im-wrapper">
+      <ion-list ng-show="vm.salts.length">
+        <ion-item ng-repeat="salt in vm.salts">
+          {{salt}}
+        </ion-item>
+      </ion-list>
+      <div class="flat center-div">
+      <button  style="margin-top: 5%" ng-click="vm.goBack()">Back</button>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>
