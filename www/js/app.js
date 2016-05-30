@@ -63,6 +63,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.checkMedicineSearch', {
+        url: '/checkMedicineSearch',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/checkMedicineSearch/check.search.medicine.html',
+                controller: 'checkMedicineSearchController as vm'
+            }
+        }
+    })
+
     .state('app.selectMedicine', {
         url: '/selectMedicine',
         cache: false,
@@ -70,6 +81,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             'menuContent': {
                 templateUrl: 'templates/selectMedicine/select.medicine.html',
                 controller: 'selectMedicineController as vm'
+            }
+        }
+    })
+
+    .state('app.checkMedicineSelect', {
+        url: '/checkMedicineSelect',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/checkMedicineSelect/check.medicine.select.html',
+                controller: 'checkMedicineSelectController as vm'
             }
         }
     })
@@ -96,6 +118,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.addSalt', {
+        url: '/addSalt',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/addSalt/add.salt.html',
+                controller: 'addSaltController as vm'
+            }
+        }
+    })
+
     .state('app.allergicSalts', {
         url: '/allergicSalts',
         cache: false,
@@ -103,6 +136,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             'menuContent': {
                 templateUrl: 'templates/allergicSalts/allergic.salts.html',
                 controller: 'allergicSaltsController as vm'
+            }
+        }
+    })
+
+    .state('app.checkMedicineResults', {
+        url: '/checkMedicineResults',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/checkMedicineResults/check.medicine.results.html',
+                controller: 'checkMedicineResultsController as vm'
             }
         }
     })

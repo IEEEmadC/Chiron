@@ -45,6 +45,7 @@
           output.error = "User not found!"
         }
       }
+      console.log(MedicineService.probableAllergicSalts);
       return output;
     }
 

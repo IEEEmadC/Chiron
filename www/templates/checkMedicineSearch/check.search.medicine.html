@@ -1,0 +1,16 @@
+﻿
+<ion-view view-title="Search Medicine">
+    <ion-content>
+        <div class="im-wrapper center-div thick flat">
+          <div style="margin-top: 20%;">
+            <h4 class='greenhead'>Search Medicine</h4>
+            Enter a name, and click 'Search' to get suggestions <br> [In a Rock n Roll way]
+          </div>
+          <div style="margin-top: 20%">
+            <form>
+            <input type='text' ng-model='vm.searchMedString' placeholder="Medicine Name..." required>
+            <button style="margin-top: 5%" ng-click="vm.searchMedicine()">Search</button>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

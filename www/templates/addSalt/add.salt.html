@@ -1,0 +1,22 @@
+﻿
+<ion-view view-title="Add Allergic Salt">
+    <ion-content>
+        <div class="im-wrapper center-div thick flat">
+          <div style="margin-top: 20%;">
+            <h4 class='greenhead'>Add Allergic Salt</h4>
+            Enter a name, and choose a category. Click 'Add' to save the allergic salt.<br><br>
+            <input type='text' ng-model='vm.salt.addedSalt' placeholder="Salt Name..." required><br><br>
+            Choose a category:
+            <center>
+              <ion-list>
+                <ion-radio style="width:80%" ng-repeat="item in vm.saltTypes" ng-value="item.type" ng-model="vm.salt.saltType" ng-checked="true" >
+                {{ item.text }}
+              </ion-radio>
+            </ion-list>
+
+            <button class="flat" style="margin-top: 5%" ng-disabled="!(vm.salt.addedSalt != '' && vm.salt.addedSalt != null && vm.salt.addedSalt != undefined)" ng-click="vm.addSalt()">Add</button>
+          </center>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -18,6 +18,7 @@
     this.definiteAllergicSalts = [];
     this.newProbableSaltsAdded = [];
     this.newDefiniteSaltsAdded = [];
+    this.selectedMedicineForCheck;
     this.previousView = '';
 
     return service;

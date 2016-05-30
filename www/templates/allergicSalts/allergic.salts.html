@@ -2,7 +2,8 @@
   <ion-content>
     <div class="im-wrapper">
       <div>
-        <div class="green-inborder" ng-show="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length && vm.previousView[0] == 'app.saltSelection'">
+        <div class="green-inborder" ng-show="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length &&
+        (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt')">
         Following salts have been added to <b> Probable Allergies Salt List </b> :
         <ion-list>
           <ion-item style="color: rgb(2, 142, 141); font-size: 12px;" ng-repeat="allergy in vm.newProbableSaltsAdded">
@@ -10,7 +11,8 @@
         </ion-item>
       </ion-list>
       </div>
-      <div class="green-inborder" ng-show="vm.previousView[1] == 'definitive' && vm.newDefiniteSaltsAdded.length && vm.previousView[0] == 'app.saltSelection'">
+      <div class="green-inborder" ng-show="vm.previousView[1] == 'definitive' && vm.newDefiniteSaltsAdded.length &&
+      (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt')">
         Following salts have been added to <b> Definite Allergies Salt List </b> :
         <ion-list>
           <ion-item style="color: rgb(2, 142, 141); font-size: 12px;" ng-repeat="allergy in vm.newDefiniteSaltsAdded">
