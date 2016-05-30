@@ -51,15 +51,6 @@
           return saltList;
         }
 
-        function notSure(){
-          angular.forEach(vm.salts, function(value){
-            if (MedicineService.probableAllergicSalts.indexOf(value.name) == -1){
-              MedicineService.probableAllergicSalts.push(value.name);
-            }
-          });
-          console.log(MedicineService.probableAllergicSalts);
-        }
-
         function checkSingleItemSelected(){
           var check = false;
           angular.forEach(vm.salts, function(value){
@@ -70,15 +61,37 @@
           return check;
         }
 
+        function notSure(){
+          var newProbableSaltsAdded = [];
+          angular.forEach(vm.salts, function(value){
+            if (MedicineService.probableAllergicSalts.indexOf(value.name) == -1 &&
+                MedicineService.definiteAllergicSalts.indexOf(value.name) == -1){
+              MedicineService.probableAllergicSalts.push(value.name);
+              newProbableSaltsAdded.push(value.name);
+            }
+          });
+          UserService.setProbableSaltsOfUser(UserService.getPresentUser().username, MedicineService.probableAllergicSalts);
+          MedicineService.newProbableSaltsAdded = newProbableSaltsAdded;
+          MedicineService.previousView = [$ionicHistory.currentView().stateId, 'probable'];
+          $state.go('app.allergicSalts');
+        }
+
+
+
         function finalSure(){
+          var newDefiniteSaltsAdded = [];
           angular.forEach(vm.salts, function(value){
             if (value.check){
               if (MedicineService.definiteAllergicSalts.indexOf(value.name) == -1){
                 MedicineService.definiteAllergicSalts.push(value.name);
+                newDefiniteSaltsAdded.push(value.name);
               }
             }
           });
-          console.log(MedicineService.definiteAllergicSalts);
+          UserService.setDefinitiveSaltsOfUser(UserService.getPresentUser().username, MedicineService.definiteAllergicSalts);
+          MedicineService.newDefiniteSaltsAdded = newDefiniteSaltsAdded;
+          MedicineService.previousView = [$ionicHistory.currentView().stateId, 'definitive'];
+          $state.go('app.allergicSalts');
         }
 
     }

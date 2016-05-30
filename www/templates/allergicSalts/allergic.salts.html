@@ -1,0 +1,53 @@
+<ion-view view-title="Allergic Salts List">
+  <ion-content>
+    <div class="im-wrapper">
+      <div>
+        <div class="green-inborder" ng-show="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length && vm.previousView[0] == 'app.saltSelection'">
+        Following salts have been added to <b> Probable Allergies Salt List </b> :
+        <ion-list>
+          <ion-item style="color: rgb(2, 142, 141); font-size: 12px;" ng-repeat="allergy in vm.newProbableSaltsAdded">
+          {{allergy}}
+        </ion-item>
+      </ion-list>
+      </div>
+      <div class="green-inborder" ng-show="vm.previousView[1] == 'definitive' && vm.newDefiniteSaltsAdded.length && vm.previousView[0] == 'app.saltSelection'">
+        Following salts have been added to <b> Definite Allergies Salt List </b> :
+        <ion-list>
+          <ion-item style="color: rgb(2, 142, 141); font-size: 12px;" ng-repeat="allergy in vm.newDefiniteSaltsAdded">
+          {{allergy}}
+        </ion-item>
+        </ion-list>      </div>
+      </div>
+      <br>
+
+      <div class='inborder'>
+        <h4 class='greenhead' style="font-size: 16px">Definite Allergies Salt List</h4>
+        <ion-list ng-hide="vm.definiteAllergicSalts.length"><ion-item>
+          None
+        </ion-item></ion-list>
+        <ion-list>
+          <ion-item ng-repeat="allergy in vm.definiteAllergicSalts">
+            {{allergy}}
+          </ion-item>
+        </ion-list>
+      </div>
+      <br>
+      <div class='inborder'>
+      <h4 class='greenhead' style="font-size: 16px">Probable Allergies Salt List</h4>
+      <ion-list ng-hide="vm.probableAllergicSalts.length"><ion-item>
+        None
+      </ion-item></ion-list>
+      <ion-list>
+        <ion-item ng-repeat="allergy in vm.probableAllergicSalts">
+          {{allergy}}
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+      <div class="flat center-div">
+        <button  style="margin-top: 5%" ng-click="vm.goHome()">Home</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

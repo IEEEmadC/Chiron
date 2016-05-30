@@ -96,6 +96,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.allergicSalts', {
+        url: '/allergicSalts',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/allergicSalts/allergic.salts.html',
+                controller: 'allergicSaltsController as vm'
+            }
+        }
+    })
+
     .state('app.extensions', {
         url: '/extensions',
         views: {

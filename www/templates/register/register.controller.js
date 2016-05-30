@@ -26,12 +26,10 @@
               vm.error = ''
                $state.go('login');
              }, 0);
-            console.log('Register Success');
           }
           else{
             vm.error = result.error;
           }
-          console.log('User list', UserService.getAllUsers());
         };
     }
 

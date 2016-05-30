@@ -15,9 +15,12 @@
       </ion-checkbox>
       </div>
       <div class="flat center-div">
-      <button style="margin-top: 5%" ng-hide="vm.salts.length == 1" ng-click="vm.notSure()">I'm not sure</button>
-      <button class="flat" style="margin-top: 5%" ng-click="vm.finalSure()" ng-disabled="!vm.checkSingleItemSelected()" >Save Selected Salts</button>
-      <button style="margin-top: 5%" ng-click="vm.goBack()">Back</button>
+      <button ng-hide="vm.salts.length == 1" ng-click="vm.notSure()">I'm not sure</button>
+      <button class="flat" ng-click="vm.finalSure()" ng-disabled="!vm.checkSingleItemSelected()" >Save Selected</button>
+    </div>
+    <div class="flat center-div">
+      <button ng-click="vm.goBack()">Back</button>
+    </div>
     </div>
   </div>
   </ion-content>

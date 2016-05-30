@@ -6,11 +6,16 @@
         .controller('LoginController', LoginController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function LoginController($timeout, $state, UserService) {
+    function LoginController($timeout, $state, UserService, $ionicHistory, MedicineService) {
         var vm = this;
 
         vm.login = login;
         vm.error = '';
+        MedicineService.previousView = [];
+        $ionicHistory.nextViewOptions({
+             disableAnimate: true,
+             disableBack: true
+        });
 
         function login() {
 
