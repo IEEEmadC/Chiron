@@ -226,7 +226,8 @@ p {
   text-align: center;
 }
 
-.thick input[type='text']{
+.thick input[type='text'],
+.thick input[type='password']{
   padding: 10px;
   border: solid 4px #c9c9c9;
   height: 45px;
@@ -239,11 +240,14 @@ p {
 }
 
 .thick input[type='text']:focus,
-.thick input[type='text'].focus{
+.thick input[type='text'].focus,
+.thick input[type='password']:focus,
+.thick input[type='password'].focus{
   border: solid 4px #4D5252;
 }
 
-.flat button {
+.flat button,
+.flat a{
   height: 45px;
   width: 45%;
   color: #fff;
@@ -255,7 +259,9 @@ p {
 }
 
 .flat button:hover,
-.flat button.hover {
+.flat button.hover,
+.flat a:hover,
+.flat a.hover{
   background-color: #028E8D;
 }
 

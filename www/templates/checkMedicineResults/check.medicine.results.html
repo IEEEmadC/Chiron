@@ -1,27 +1,24 @@
 <ion-view view-title="Select Salts">
   <ion-content>
     <div class="im-wrapper" style="margin-top: 10%">
-      <div ng-show="vm.salts.length == 1">
-          {{vm.isAllergy}}
-        <ion-checkbox style="margin-top: 10%" ng-show="vm.salts.length" ng-disabled="true" class="checkbox-dark" ng-repeat="salt in vm.salts" ng-model="salt.check" ng-checked="salt.check" ng-change="vm.pushChange()">
+      <div>
+        {{vm.isAllergy}}
 
-        </ion-checkbox>
       </div>
       <div ng-show="vm.salts.length > 1">
-      <p>This medicine contains multiple salts. Either select salts and add to <b>Strictly Prohibited Salts List</b>, else
-      select <b>I'm not sure</b> to add all the salts to <b>Probable Prohibited Salts List</b><p>
-      <ion-checkbox class="checkbox-dark" ng-show="vm.salts.length" ng-repeat="salt in vm.salts" ng-model="salt.check" ng-checked="salt.check" ng-change="vm.pushChange()">
-          {{salt.name}}
-      </ion-checkbox>
+        <p>This medicine contains multiple salts. Either select salts and add to <b>Strictly Prohibited Salts List</b>, else
+          select <b>I'm not sure</b> to add all the salts to <b>Probable Prohibited Salts List</b><p>
+            <ion-checkbox class="checkbox-dark" ng-show="vm.salts.length" ng-repeat="salt in vm.salts" ng-model="salt.check" ng-checked="salt.check" ng-change="vm.pushChange()">
+              {{salt.name}}
+            </ion-checkbox>
+          </div>
+          <div ng-show="vm.salts.length == 0">
+            Sorry, information about this medicine is inadequate.
+          </div>
+          <div class="flat center-div">
+            <button ng-click="vm.goBack()">Back</button>
+          </div>
+        </div>
       </div>
-      <div class="flat center-div">
-      <button ng-hide="vm.salts.length == 1" ng-click="vm.notSure()">I'm not sure</button>
-      <button class="flat" ng-click="vm.finalSure()" ng-disabled="!vm.checkSingleItemSelected()" >Save Selected</button>
-    </div>
-    <div class="flat center-div">
-      <button ng-click="vm.goBack()">Back</button>
-    </div>
-    </div>
-  </div>
-  </ion-content>
-</ion-view>
+    </ion-content>
+  </ion-view>

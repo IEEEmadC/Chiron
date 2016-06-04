@@ -11,6 +11,7 @@
 
         vm.login = login;
         vm.error = '';
+        vm.goToRegister = goToRegister;
         MedicineService.previousView = [];
         $ionicHistory.nextViewOptions({
              disableAnimate: true,
@@ -30,6 +31,10 @@
             vm.error = result.error;
           }
         };
+
+        function goToRegister(){
+            $state.go('register');
+        }
     }
 
 })();

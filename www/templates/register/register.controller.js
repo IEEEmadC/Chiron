@@ -10,6 +10,7 @@
         var vm = this;
 
         vm.register = register;
+        vm.goToLogin = goToLogin;
         vm.error = '';
         // login();
 
@@ -31,6 +32,10 @@
             vm.error = result.error;
           }
         };
+
+        function goToLogin(){
+          $state.go('login');
+        }
     }
 
 })();

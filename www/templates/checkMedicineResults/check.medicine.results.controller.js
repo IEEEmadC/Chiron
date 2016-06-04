@@ -27,7 +27,6 @@
               .then(function(response) {
                   vm.salts = makeList(response.data.response.constituents);
                   checkIfAllergy(vm.salts);
-                  console.log(vm.isAllergy);
                   $ionicLoading.hide();
               }, function(error) {
                   console.log(error);
@@ -44,23 +43,26 @@
 
         function checkIfAllergy(saltsInMedicine){
           angular.forEach(saltsInMedicine, function(medicineSalt){
-            angular.forEach(MedicineService.definiteAllergicSalts, function(definiteSalt){
-              if(definiteSalt == medicineSalt){
-                vm.isAllergy = 'yes';
-                return;
+            angular.forEach(MedicineService.probableAllergicSalts, function(probableSalt){
+              if(probableSalt == medicineSalt){
+                vm.isAllergy = 'maybe';
+                console.log('b');
               }
             })
           })
           angular.forEach(saltsInMedicine, function(medicineSalt){
-            angular.forEach(MedicineService.probableAllergicSalts, function(probableSalt){
-              if(probableSalt == medicineSalt){
-                vm.isAllergy = 'maybe';
-                return;
+            angular.forEach(MedicineService.definiteAllergicSalts, function(definiteSalt){
+              if(definiteSalt == medicineSalt){
+                vm.isAllergy = 'yes';
+                console.log('a');
               }
             })
           })
-          vm.isAllergy = 'no';
-          return;
+
+          if (!vm.isAllergy && vm.isAllergy != 'yes' && vm.isAllergy !='maybe'){
+            vm.isAllergy = 'no';
+            console.log('c');
+          }
         }
 
     }

@@ -14,7 +14,7 @@
     this.selectedMedicine;
     this.currentMedicineSalt;
     this.suggestions;
-    this.probableAllergicSalts;
+    this.probableAllergicSalts = [];
     this.definiteAllergicSalts = [];
     this.newProbableSaltsAdded = [];
     this.newDefiniteSaltsAdded = [];
