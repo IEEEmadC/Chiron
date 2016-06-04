@@ -8,6 +8,12 @@
     // LoginController.$inject = ['$location', 'UserService'];
     function checkMedicineResultsController($timeout, $state, UserService, MedicineService, $ionicHistory, $ionicLoading) {
         var vm = this;
+        vm.allergicProbableSalts = [];
+        vm.allergicDefiniteSalts = [];
+        vm.checkSaltForYellowColor = checkSaltForYellowColor;
+        vm.checkSaltForRedColor = checkSaltForRedColor;
+        vm.cehckSaltForGreenColor = checkSaltForGreenColor;
+        vm.salts = [];
         // vm.goBack = goBack;
         // vm.notSure = notSure;
         // vm.finalSure = finalSure;
@@ -26,6 +32,8 @@
               .getSaltFromMedicine(MedicineService.selectedMedicineForCheck)
               .then(function(response) {
                   vm.salts = makeList(response.data.response.constituents);
+                  vm.allergicProbableSalts = [];
+                  vm.allergicDefiniteSalts = [];
                   checkIfAllergy(vm.salts);
                   $ionicLoading.hide();
               }, function(error) {
@@ -46,7 +54,7 @@
             angular.forEach(MedicineService.probableAllergicSalts, function(probableSalt){
               if(probableSalt == medicineSalt){
                 vm.isAllergy = 'maybe';
-                console.log('b');
+                vm.allergicProbableSalts.push(probableSalt);
               }
             })
           })
@@ -54,17 +62,30 @@
             angular.forEach(MedicineService.definiteAllergicSalts, function(definiteSalt){
               if(definiteSalt == medicineSalt){
                 vm.isAllergy = 'yes';
-                console.log('a');
+                vm.allergicDefiniteSalts.push(definiteSalt);
               }
             })
           })
 
           if (!vm.isAllergy && vm.isAllergy != 'yes' && vm.isAllergy !='maybe'){
             vm.isAllergy = 'no';
-            console.log('c');
           }
+          console.log(vm.salts);
         }
 
+        function checkSaltForYellowColor(salt){
+          console.log(salt);
+          console.log(vm.allergicProbableSalts.indexOf(salt) > -1);
+          return vm.allergicProbableSalts.indexOf(salt) > -1;
+        }
+
+        function checkSaltForRedColor(salt){
+          return vm.allergicDefiniteSalts.indexOf(salt) > -1;
+        }
+
+        function checkSaltForGreenColor(salt){
+          return !(vm.allergicDefiniteSalts.indexOf(salt) > -1 || vm.allergicProbableSalts.indexOf(salt) > -1);
+        }
     }
 
 })();

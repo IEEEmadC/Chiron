@@ -295,3 +295,46 @@ p {
   border-style: dotted;
   font-size: 12px;
 }
+.yellow-inborder{
+  padding: 10px;
+  border: solid 3px;
+  border-color: rgb(245, 184, 5);
+  color: rgb(245, 184, 5);
+  border-style: dotted;
+  font-size: 12px;
+}
+
+.red-inborder{
+  padding: 10px;
+  border: solid 3px;
+  border-color: rgb(56, 34, 222);
+  color: rgb(56, 34, 222);
+  border-style: dotted;
+  font-size: 12px;
+}
+
+.allergic-output-green{
+  font-size: 24px !important;
+  text-align: center;
+  color: rgb(2, 142, 141);
+}
+
+.allergic-output-yellow{
+  font-size: 24px !important;
+  text-align: center;
+  color: rgb(245, 184, 5);
+}
+
+.allergic-output-red{
+  font-size: 24px !important;
+  text-align: center;
+  color: rgb(56, 34, 222);
+}
+
+.yellow-text{
+  color: rgb(245, 184, 5);
+}
+
+.red-text{
+  color: rgb(56, 34, 222);
+}

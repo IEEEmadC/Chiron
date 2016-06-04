@@ -1,24 +1,65 @@
 <ion-view view-title="Select Salts">
   <ion-content>
     <div class="im-wrapper" style="margin-top: 10%">
-      <div>
-        {{vm.isAllergy}}
 
-      </div>
-      <div ng-show="vm.salts.length > 1">
-        <p>This medicine contains multiple salts. Either select salts and add to <b>Strictly Prohibited Salts List</b>, else
-          select <b>I'm not sure</b> to add all the salts to <b>Probable Prohibited Salts List</b><p>
-            <ion-checkbox class="checkbox-dark" ng-show="vm.salts.length" ng-repeat="salt in vm.salts" ng-model="salt.check" ng-checked="salt.check" ng-change="vm.pushChange()">
-              {{salt.name}}
-            </ion-checkbox>
-          </div>
-          <div ng-show="vm.salts.length == 0">
-            Sorry, information about this medicine is inadequate.
-          </div>
-          <div class="flat center-div">
-            <button ng-click="vm.goBack()">Back</button>
+      <div ng-show="vm.isAllergy == 'no'">
+        <div class="class='green-inborder'">
+          <p class="allergic-output-green">SAFE</p>
+        </div>
+        <br>
+        <br>
+        <div class="inborder">
+          <ion-list>
+            <ion-item ng-repeat="salt in vm.salts">
+              <div>
+                {{salt}}
+              </div>
+            </ion-list>
           </div>
         </div>
-      </div>
-    </ion-content>
-  </ion-view>
+
+        <div ng-show="vm.isAllergy == 'maybe'">
+          <div class="yellow-inborder">
+            <p class="allergic-output-yellow">Probably</p>
+            <p class="allergic-output-yellow">UNSAFE</p>
+          </div>
+          <br>
+          <br>
+          <div class="inborder">
+            <ion-list>
+              <ion-item ng-repeat="salt in vm.salts">
+                <div ng-show="vm.checkSaltForYellowColor(salt)" class="yellow-text" >
+                  {{salt}}
+                </div>
+                <div ng-show="vm.checkSaltForGreenColor(salt)">
+                  {{salt}}
+                </div>
+              </ion-list>
+            </div>
+          </div>
+
+          <div ng-show="vm.isAllergy == 'yes'">
+            <div class="red-inborder">
+              <p class="allergic-output-red">UNSAFE</p>
+            </div>
+            <br>
+            <br>
+            <div class="inborder">
+              <ion-list>
+                <ion-item ng-repeat="salt in vm.salts">
+                  <div ng-show="vm.checkSaltForYellowColor" class="yellow-text">
+                    {{salt}}
+                  </div>
+                  <div ng-show="vm.checkSaltForRedColor()" class="red-text">
+                    {{salt}}
+                  </div>
+                  <div ng-show="vm.checkSaltForGreenColor()">
+                    {{salt}}
+                  </div>
+                </ion-list>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-view>
