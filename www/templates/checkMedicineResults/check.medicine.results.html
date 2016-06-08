@@ -1,65 +1,73 @@
-<ion-view view-title="Select Salts">
+<ion-view view-title="Check Medicine Results">
   <ion-content>
     <div class="im-wrapper" style="margin-top: 10%">
 
       <div ng-show="vm.isAllergy == 'no'">
-        <div class="class='green-inborder'">
+
+        <div class="green-inborder">
           <p class="allergic-output-green">SAFE</p>
         </div>
-        <br>
-        <br>
+
+        <br><br>
+
         <div class="inborder">
           <ion-list>
             <ion-item ng-repeat="salt in vm.salts">
               <div>
                 {{salt}}
               </div>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+
+      <div ng-show="vm.isAllergy == 'maybe'">
+
+        <div class="yellow-inborder">
+          <p class="allergic-output-yellow">Probably</p>
+          <p class="allergic-output-yellow">UNSAFE</p>
+        </div>
+
+        <br><br>
+
+        <div class="inborder">
+          <ion-list>
+            <ion-item ng-repeat="salt in vm.salts">
+              <div ng-show="vm.checkSaltForYellowColor(salt)" class="yellow-text" >
+                {{salt}}
+              </div>
+              <div ng-show="vm.checkSaltForGreenColor(salt)">
+                {{salt}}
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+
+      <div ng-show="vm.isAllergy == 'yes'">
+
+        <div class="red-inborder">
+          <p class="allergic-output-red">UNSAFE</p>
+        </div>
+
+        <br><br>
+
+        <div class="inborder">
+          <ion-list>
+            <ion-item ng-repeat="salt in vm.salts">
+              <div ng-show="vm.checkSaltForYellowColor(salt)" class="yellow-text">
+                {{salt}}
+              </div>
+              <div ng-show="vm.checkSaltForRedColor(salt)" class="red-text">
+                {{salt}}
+              </div>
+              <div ng-show="vm.checkSaltForGreenColor(salt)">
+                {{salt}}
+              </div>
             </ion-list>
           </div>
         </div>
-
-        <div ng-show="vm.isAllergy == 'maybe'">
-          <div class="yellow-inborder">
-            <p class="allergic-output-yellow">Probably</p>
-            <p class="allergic-output-yellow">UNSAFE</p>
-          </div>
-          <br>
-          <br>
-          <div class="inborder">
-            <ion-list>
-              <ion-item ng-repeat="salt in vm.salts">
-                <div ng-show="vm.checkSaltForYellowColor(salt)" class="yellow-text" >
-                  {{salt}}
-                </div>
-                <div ng-show="vm.checkSaltForGreenColor(salt)">
-                  {{salt}}
-                </div>
-              </ion-list>
-            </div>
-          </div>
-
-          <div ng-show="vm.isAllergy == 'yes'">
-            <div class="red-inborder">
-              <p class="allergic-output-red">UNSAFE</p>
-            </div>
-            <br>
-            <br>
-            <div class="inborder">
-              <ion-list>
-                <ion-item ng-repeat="salt in vm.salts">
-                  <div ng-show="vm.checkSaltForYellowColor" class="yellow-text">
-                    {{salt}}
-                  </div>
-                  <div ng-show="vm.checkSaltForRedColor()" class="red-text">
-                    {{salt}}
-                  </div>
-                  <div ng-show="vm.checkSaltForGreenColor()">
-                    {{salt}}
-                  </div>
-                </ion-list>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ion-content>
-    </ion-view>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

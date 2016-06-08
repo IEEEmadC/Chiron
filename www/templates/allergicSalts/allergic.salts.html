@@ -1,7 +1,13 @@
+
 <ion-view view-title="Allergic Salts List">
   <ion-content>
     <div class="im-wrapper">
       <div>
+        <div>
+        <button class="button pull-right button-icon icon ion-trash-a headicon"
+          ng-click="data.showDelete = !data.showDelete;"></button>
+<br>
+<br>
         <div class="green-inborder" ng-show="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length &&
         (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt')">
         Following salts have been added to <b> Probable Allergies Salt List </b> :
@@ -27,9 +33,12 @@
         <ion-list ng-hide="vm.definiteAllergicSalts.length"><ion-item>
           None
         </ion-item></ion-list>
-        <ion-list>
+        <ion-list show-delete="data.showDelete">
           <ion-item ng-repeat="allergy in vm.definiteAllergicSalts">
             {{allergy}}
+            <ion-delete-button class="ion-minus-circled"
+                               ng-click="vm.onDefiniteItemDelete(allergy)">
+            </ion-delete-button>
           </ion-item>
         </ion-list>
       </div>
@@ -39,9 +48,12 @@
       <ion-list ng-hide="vm.probableAllergicSalts.length"><ion-item>
         None
       </ion-item></ion-list>
-      <ion-list>
+      <ion-list show-delete="data.showDelete">
         <ion-item ng-repeat="allergy in vm.probableAllergicSalts">
           {{allergy}}
+          <ion-delete-button class="ion-minus-circled"
+                             ng-click="vm.onProbableItemDelete(allergy)">
+          </ion-delete-button>
         </ion-item>
       </ion-list>
     </div>

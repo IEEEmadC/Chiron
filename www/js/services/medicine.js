@@ -29,7 +29,7 @@
     }
 
     function getSaltFromMedicine(medicine){
-      return $http.get('/apiSaltFromMedicine?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
+      return $http.get('apiSaltFromMedicine' + '?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
     }
 
 

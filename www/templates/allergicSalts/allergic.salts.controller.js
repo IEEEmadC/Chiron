@@ -6,7 +6,7 @@
         .controller('allergicSaltsController', allergicSaltsController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function allergicSaltsController($timeout, $state, UserService, MedicineService, $ionicHistory) {
+    function allergicSaltsController($timeout, $scope, $state, UserService, MedicineService, $ionicHistory) {
         var vm = this;
         vm.probableAllergicSalts = MedicineService.probableAllergicSalts;
         vm.definiteAllergicSalts = MedicineService.definiteAllergicSalts;
@@ -17,7 +17,22 @@
         $ionicHistory.nextViewOptions({
           disableBack: true
         });
+        $scope.data = {
+         showDelete: false
+       };
+
+         vm.onProbableItemDelete = onProbableItemDelete;
+         vm.onDefiniteItemDelete = onDefiniteItemDelete;
+
         return vm;
+
+        function onProbableItemDelete(item){
+          vm.probableAllergicSalts.splice(vm.probableAllergicSalts.indexOf(item), 1);
+        }
+
+        function onDefiniteItemDelete(item){
+          vm.definiteAllergicSalts.splice(vm.definiteAllergicSalts.indexOf(item), 1);
+        }
 
         function sendBackToSearch(){
           $ionicHistory.goBack();

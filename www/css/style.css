@@ -307,8 +307,8 @@ p {
 .red-inborder{
   padding: 10px;
   border: solid 3px;
-  border-color: rgb(56, 34, 222);
-  color: rgb(56, 34, 222);
+  border-color: rgb(228, 4, 4);
+  color: rgb(228, 4, 4);
   border-style: dotted;
   font-size: 12px;
 }
@@ -317,18 +317,24 @@ p {
   font-size: 24px !important;
   text-align: center;
   color: rgb(2, 142, 141);
+  margin: auto;
+  padding: 15px;
 }
 
 .allergic-output-yellow{
   font-size: 24px !important;
   text-align: center;
   color: rgb(245, 184, 5);
+  margin: auto;
+  padding: 15px;
 }
 
 .allergic-output-red{
   font-size: 24px !important;
   text-align: center;
-  color: rgb(56, 34, 222);
+  color: rgb(228, 4, 4);
+  margin: auto;
+  padding: 15px;
 }
 
 .yellow-text{
@@ -336,5 +342,12 @@ p {
 }
 
 .red-text{
-  color: rgb(56, 34, 222);
+  color: rgb(228, 4, 4);
+}
+
+.ion-minus-circled,
+.headicon{
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  box-shadow: none !important;
 }
