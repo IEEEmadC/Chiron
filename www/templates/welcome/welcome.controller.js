@@ -8,6 +8,10 @@
     load();
     function load(){
       vm.user = UserService.getPresentUser();
+      MedicineService.getAllSalts()
+      .then(function(resp){
+        console.log(resp);
+      })
     }
 
 });

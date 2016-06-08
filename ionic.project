@@ -9,6 +9,10 @@
     {
       "path": "/apiSaltFromMedicine",
       "proxyUrl": "http://www.truemd.in/api/medicine_details/"
+    },
+    {
+      "path": "/apiAllSaltsFromBase",
+      "proxyUrl": "https://chiron-backend.herokuapp.com/api/salts"
     }
     ]
 }
