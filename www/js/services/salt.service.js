@@ -27,5 +27,14 @@
     function addSaltToDatabase(salt){
       return $http.post('/apiSalt', {'name': salt});
     }
+
+    // function getSaltSuggestions(searchString){
+    //   this.searchStringSalt = searchString;
+    //   return $http.get('https://chiron-backend.herokuapp.com/api/salt/' + searchString);
+    // }
+    //
+    // function addSaltToDatabase(salt){
+    //   return $http.post('https://chiron-backend.herokuapp.com/api/salt', {'name': salt});
+    // }
   }
 })();

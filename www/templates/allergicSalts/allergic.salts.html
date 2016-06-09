@@ -5,9 +5,10 @@
       <div>
         <div>
         <button class="button pull-right button-icon icon ion-trash-a headicon"
-          ng-click="data.showDelete = !data.showDelete;" ng-hide="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length &&
-          (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt') && vm.previousView[1] == 'definitive' && vm.newDefiniteSaltsAdded.length &&
+          ng-click="data.showDelete = !data.showDelete;" ng-hide="vm.previousView[1] == 'probable' || vm.newProbableSaltsAdded.length < 0 ||
+          (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt') || vm.previousView[1] == 'definitive' || vm.newDefiniteSaltsAdded.length < 0 ||
           (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt') "></button>
+
         <br>
         <br>
         <div class="green-inborder" ng-show="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length &&

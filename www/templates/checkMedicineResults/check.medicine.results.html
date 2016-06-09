@@ -1,7 +1,6 @@
 <ion-view view-title="Check Medicine Results">
   <ion-content>
     <div class="im-wrapper" style="margin-top: 10%">
-
       <div ng-show="vm.isAllergy == 'no'">
 
         <div class="green-inborder">
@@ -19,6 +18,8 @@
             </ion-item>
           </ion-list>
         </div>
+        <button class="pull-right icon ion-ios-information-outline" ng-click="showPopup()"> </button>
+
       </div>
 
       <div ng-show="vm.isAllergy == 'maybe'">
@@ -42,6 +43,8 @@
             </ion-item>
           </ion-list>
         </div>
+        <button class="pull-right icon ion-ios-information-outline" ng-click="showPopup()"> </button>
+
       </div>
 
       <div ng-show="vm.isAllergy == 'yes'">
@@ -66,8 +69,9 @@
               </div>
             </ion-list>
           </div>
+          <button class="pull-right icon ion-ios-information-outline" ng-click="showPopup()"> </button>
         </div>
       </div>
-    </div>
+      </div>
   </ion-content>
 </ion-view>
