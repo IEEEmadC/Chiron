@@ -1,0 +1,28 @@
+
+<ion-view view-title="Select Salt">
+  <ion-content>
+    <div class="im-wrapper thick flat">
+      <ion-list ng-show="vm.suggestions.length">
+        <ion-item ng-repeat="suggestion in vm.suggestions" ng-model="vm.selectedSuggestion" ng-click="vm.selectedS(suggestion)">
+          {{suggestion}}
+        </ion-item>
+      </ion-list>
+      <div ng-hide='vm.suggestions.length' class="center-div margin-top-30">
+      <h4> Sorry, no salt found. </h4>
+
+      As of now, the database for salts is open for expansion. You may add a salt, and it would directly update the backend server.<br><br>
+      Enter a name (If possible, go Case-Senstive!), and click 'Add' to save the update salts database.<br><br>
+      <input type='text' ng-model='vm.saltForDatabase' placeholder="Salt Name..." required><br><br>
+
+      <button class="flat" style="margin-top: 5%" ng-disabled="!(vm.saltForDatabase != '' && vm.saltForDatabase != null && vm.saltForDatabase != undefined)" ng-click="vm.addSaltToDatabase()">Add to Database</button>
+    </center>
+      </div>
+      <div class="flat center-div">
+      <div ng-show="vm.additionSuccessful">
+        <br>Database Updated!<b> {{vm.addedSalt}} has been added. </b> <br>Search again, you should find your salt.<br>
+      </div>
+      <button  style="margin-top: 5%" ng-click="vm.sendBackToSearch()">Search again</button>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

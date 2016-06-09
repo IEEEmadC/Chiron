@@ -63,6 +63,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         }
     })
 
+    .state('app.searchSalt', {
+        url: '/searchSalt',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/searchSalt/search.salt.html',
+                controller: 'searchSaltController as vm'
+            }
+        }
+    })
+
     .state('app.checkMedicineSearch', {
         url: '/checkMedicineSearch',
         cache: false,
@@ -81,6 +92,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             'menuContent': {
                 templateUrl: 'templates/selectMedicine/select.medicine.html',
                 controller: 'selectMedicineController as vm'
+            }
+        }
+    })
+
+    .state('app.selectSalt', {
+        url: '/selectSalt',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/selectSalt/select.salt.html',
+                controller: 'selectSaltController as vm'
             }
         }
     })

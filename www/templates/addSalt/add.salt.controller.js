@@ -6,12 +6,13 @@
         .controller('addSaltController', addSaltController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function addSaltController($timeout, $state, UserService, MedicineService, $scope, $ionicLoading, $ionicHistory) {
+    function addSaltController($timeout, $state, UserService, MedicineService, $scope, $ionicLoading, $ionicHistory, SaltService) {
         var vm = this;
         vm.addSalt = addSalt;
         vm.saltTypes = [{type: 'Definite', text: 'Definitely Allergic'},
                         {type: 'Probable', text: 'Probably Allergic'}]
         vm.salt = {saltType:'Definite'};
+        vm.salt.addedSalt = SaltService.selectedSalt;
 
         return vm;
 
