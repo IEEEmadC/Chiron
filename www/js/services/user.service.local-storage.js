@@ -18,11 +18,12 @@
     this.presentUser;
     this.setProbableSaltsOfUser = setProbableSaltsOfUser;
     this.setDefinitiveSaltsOfUser = setDefinitiveSaltsOfUser;
+    this.logout = logout;
+    this.autoLogin = autoLogin;
     return service;
 
     function login(username, password){
       var output = {};
-      var presentUser;
       output.success = false;
       if (!localStorage.users){
         output.error = 'User not found!';
@@ -35,6 +36,8 @@
               setPresentUser(user);
               MedicineService.probableAllergicSalts = user.probableAllergicSalts;
               MedicineService.definiteAllergicSalts = user.definiteAllergicSalts;
+              localStorage.session = true;
+              localStorage.sessionPresentUser = user.username;
             }
             else{
               output.error = "Authentication failed. Username and Password doesn't match.";
@@ -64,6 +67,23 @@
         output.error = "Account Exists Already!";
       }
       return output;
+    }
+
+    function logout(){
+      localStorage.session = false;
+      localStorage.sessionPresentUser = '';
+    }
+
+    function autoLogin(){
+      angular.forEach(getUsers(), function(user){
+        if (localStorage.sessionPresentUser === user.username){
+          setPresentUser(user);
+          console.log('user.P', user.probableAllergicSalts);
+          console.log('user.D', user.definitiveAllergicSalts);
+          MedicineService.probableAllergicSalts = user.probableAllergicSalts;
+          MedicineService.definiteAllergicSalts = user.definiteAllergicSalts;
+        }
+      })
     }
 
     function userExists(username){

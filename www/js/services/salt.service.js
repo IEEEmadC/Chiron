@@ -18,7 +18,7 @@
     this.searchStringSalt = '';
 
     return service;
-
+    //
     function getSaltSuggestions(searchString){
       this.searchStringSalt = searchString;
       return $http.get('/apiSalt/' + searchString);

@@ -8,6 +8,7 @@
     load();
     function load(){
       vm.user = UserService.getPresentUser();
+      UserService.autoLogin();
     }
 
 });

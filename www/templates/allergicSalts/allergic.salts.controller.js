@@ -28,10 +28,12 @@
 
         function onProbableItemDelete(item){
           vm.probableAllergicSalts.splice(vm.probableAllergicSalts.indexOf(item), 1);
+          UserService.setProbableSaltsOfUser(UserService.getPresentUser().username, MedicineService.probableAllergicSalts);
         }
 
         function onDefiniteItemDelete(item){
           vm.definiteAllergicSalts.splice(vm.definiteAllergicSalts.indexOf(item), 1);
+          UserService.setDefinitiveSaltsOfUser(UserService.getPresentUser().username, MedicineService.definiteAllergicSalts);
         }
 
         function sendBackToSearch(){

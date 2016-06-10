@@ -14,7 +14,7 @@
 
         <ion-nav-view name="menuContent"></ion-nav-view>
     </ion-side-menu-content>
-    <ion-side-menu side="left">
+    <ion-side-menu side="left" ng-controller="MenuComponentCtrl as vm">
         <ion-header-bar class="expanded">
             <img src="img/logo.png" class="avatar motion spin fade">
             <div class="menu-bottom">
@@ -41,7 +41,7 @@
                 <ion-item nav-clear menu-close href="#/app/ink">
                     About
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/app/login">
+                <ion-item nav-clear menu-close ng-click="vm.logout()">
                     Logout
                 </ion-item>
             </ion-list>

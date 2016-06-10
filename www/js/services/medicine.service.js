@@ -25,21 +25,21 @@
     return service;
 
     //key: 19672e3aa4204c3de62095597d5947
-    function getMedicineSuggestions(searchString){
-      return $http.get('/apiMedicineSuggestions' + '?id=' + searchString +'&limit=' + 20 +'&key=' + '19672e3aa4204c3de62095597d5947');
-    }
-
-    function getSaltFromMedicine(medicine){
-      return $http.get('apiSaltFromMedicine' + '?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
-    }
-
     // function getMedicineSuggestions(searchString){
-    //   return $http.get('http://www.truemd.in/api/medicine_suggestions/' + '?id=' + searchString +'&limit=' + 20 +'&key=' + '19672e3aa4204c3de62095597d5947');
+    //   return $http.get('/apiMedicineSuggestions' + '?id=' + searchString +'&limit=' + 20 +'&key=' + '19672e3aa4204c3de62095597d5947');
     // }
     //
     // function getSaltFromMedicine(medicine){
-    //   return $http.get('http://www.truemd.in/api/medicine_details/' + '?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
+    //   return $http.get('apiSaltFromMedicine' + '?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
     // }
+
+    function getMedicineSuggestions(searchString){
+      return $http.get('http://www.truemd.in/api/medicine_suggestions/' + '?id=' + searchString +'&limit=' + 20 +'&key=' + '19672e3aa4204c3de62095597d5947');
+    }
+
+    function getSaltFromMedicine(medicine){
+      return $http.get('http://www.truemd.in/api/medicine_details/' + '?id=' + encodeURIComponent(medicine) +'&key=' + '19672e3aa4204c3de62095597d5947');
+    }
 
 
     function getAllSalts(){

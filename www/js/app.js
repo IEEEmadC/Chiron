@@ -24,9 +24,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     .state('app', {
         url: '/app',
-        abstract: true,
+        // abstract: true,
         templateUrl: 'templates/menu.html',
-        controller: 'AppCtrl'
+        controller: 'AppCtrl',
+        onEnter: function($state){
+          console.log('heyya');
+          console.log('localStorage.session', localStorage.session);
+          if(localStorage.session == 'false'){
+            console.log('ininin');
+             $state.go('login');
+          }
+        }
     })
 
 
@@ -185,5 +193,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/app/welcome');
 });

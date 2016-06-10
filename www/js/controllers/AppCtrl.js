@@ -1,4 +1,4 @@
-﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout) {
+﻿app.controller('AppCtrl', function ($scope, $ionicModal, $ionicPopover, $timeout, $state) {
     // Form data for the login modal
     $scope.loginData = {};
 
@@ -29,4 +29,15 @@
     $scope.$on('$destroy', function () {
         $scope.popover.remove();
     });
+
+    // onEnter();
+    // console.log('hey');
+    // function onEnter(){
+    //   console.log('heyya');
+    //   console.log('localStorage.session', localStorage.session);
+    //   if(localStorage.session == 'false'){
+    //     console.log('ininin');
+    //     $state.go('login');
+    //   }
+    // }
 });
