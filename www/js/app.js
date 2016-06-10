@@ -28,10 +28,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl',
         onEnter: function($state){
-          console.log('heyya');
-          console.log('localStorage.session', localStorage.session);
-          if(localStorage.session == 'false'){
-            console.log('ininin');
+          if(localStorage.session == undefined || localStorage.session == 'false'){
              $state.go('login');
           }
         }
@@ -100,6 +97,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             'menuContent': {
                 templateUrl: 'templates/selectMedicine/select.medicine.html',
                 controller: 'selectMedicineController as vm'
+            }
+        }
+    })
+
+    .state('app.futureProspects', {
+        url: '/futureProspects',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/futureProspects/future.prospects.html'
+                // controller: 'selectMedicineController as vm'
             }
         }
     })
