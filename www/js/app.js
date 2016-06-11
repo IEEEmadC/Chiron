@@ -43,6 +43,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     .state('register', {
         url: '/register',
+        cache: false,
         templateUrl: 'templates/register/register.view.html',
         controller: 'RegisterController as vm'
     })
@@ -107,6 +108,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         views: {
             'menuContent': {
                 templateUrl: 'templates/futureProspects/future.prospects.html'
+                // controller: 'selectMedicineController as vm'
+            }
+        }
+    })
+
+    .state('app.about', {
+        url: '/about',
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/about/about.html'
                 // controller: 'selectMedicineController as vm'
             }
         }
@@ -201,5 +213,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/welcome');
+    // $urlRouterProvider.otherwise('/app/welcome');
 });
