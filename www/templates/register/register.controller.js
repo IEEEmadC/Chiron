@@ -12,6 +12,7 @@
         vm.register = register;
         vm.goToLogin = goToLogin;
         vm.error = '';
+        vm.user = {};
         return;
         // login();
 

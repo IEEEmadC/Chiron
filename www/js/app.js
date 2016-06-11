@@ -37,6 +37,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     .state('login', {
         url: '/login',
+        cache: false,
         templateUrl: 'templates/login/login.view.html',
         controller: 'LoginController as vm'
     })
@@ -213,5 +214,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     ;
 
     // if none of the above states are matched, use this as the fallback
-    // $urlRouterProvider.otherwise('/app/welcome');
+    $urlRouterProvider.otherwise('/app/welcome');
 });

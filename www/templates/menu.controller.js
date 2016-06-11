@@ -11,6 +11,7 @@
 
         function logout(){
           UserService.logout();
+          console.log('go');
           $state.go('login');
         }
     }
