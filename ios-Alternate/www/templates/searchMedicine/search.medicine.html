@@ -1,0 +1,16 @@
+﻿
+<ion-view view-title=''>
+    <ion-content overflow-scroll="true" scroll="true">
+        <div class="im-wrapper center-div thick">
+          <div style="margin-top: 35%;">
+            <h3 class='greenhead'>Search Medicine</h3>
+            Enter a name, and click 'Search' to get suggestions
+          </div>
+          <div style="margin-top: 15%">
+            <form>
+            <input type='text' ng-model='vm.searchMedString' placeholder="Medicine Name..." required>
+            <button class="bottomButton2" ng-click="vm.searchMedicine()">Search</button>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

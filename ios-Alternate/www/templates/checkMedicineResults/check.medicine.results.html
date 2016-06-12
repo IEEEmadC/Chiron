@@ -1,0 +1,81 @@
+<ion-view title=''>
+  <ion-content overflow-scroll="true" scroll="true" >
+    <div id="con" class="im-wrapper" style="margin-top: 10%">
+      <div ng-show="vm.isAllergy == 'no'">
+
+        <div class="green-inborder">
+          <p class="allergic-output-green">SAFE</p>
+        </div>
+
+        <br><br>
+
+        <div class="inborder">
+          <ion-list>
+            <ion-item ng-repeat="salt in vm.salts">
+              <div>
+                {{salt}}
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+        <button class="pull-right icon button-icon ion-ios-information-outline" ng-click="showPopup()"> </button>
+
+      </div>
+
+      <div ng-show="vm.isAllergy == 'maybe'">
+
+        <div class="yellow-inborder">
+          <p class="allergic-output-yellow">Probably</p>
+          <p class="allergic-output-yellow">UNSAFE</p>
+        </div>
+
+        <br><br>
+
+        <div class="inborder">
+          <ion-list>
+            <ion-item ng-repeat="salt in vm.salts">
+              <div ng-show="vm.checkSaltForYellowColor(salt)" class="yellow-text" >
+                {{salt}}
+              </div>
+              <div ng-show="vm.checkSaltForGreenColor(salt)">
+                {{salt}}
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+        <button class="pull-right button-icon icon ion-ios-information-outline" ng-click="showPopup()"> </button>
+
+      </div>
+
+      <div ng-show="vm.isAllergy == 'yes'">
+
+        <div class="red-inborder">
+          <p class="allergic-output-red">UNSAFE</p>
+        </div>
+
+        <br><br>
+
+        <div class="inborder">
+          <ion-list>
+            <ion-item ng-repeat="salt in vm.salts">
+              <div ng-show="vm.checkSaltForYellowColor(salt)" class="yellow-text">
+                {{salt}}
+              </div>
+              <div ng-show="vm.checkSaltForRedColor(salt)" class="red-text">
+                {{salt}}
+              </div>
+              <div ng-show="vm.checkSaltForGreenColor(salt)">
+                {{salt}}
+              </div>
+            </ion-list>
+          </div>
+          <button class="pull-right button-icon icon ion-ios-information-outline" ng-click="showPopup()"> </button>
+        </div>
+
+      <div class="bar-footer">
+      <button class="bottomButton2" ng-click="vm.goHome()">Home</button>
+      </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

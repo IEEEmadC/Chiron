@@ -1,0 +1,22 @@
+{
+  "name": "myApp",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/apiMedicineSuggestions",
+      "proxyUrl": "http://www.truemd.in/api/medicine_suggestions/"
+    },
+    {
+      "path": "/apiSaltFromMedicine",
+      "proxyUrl": "http://www.truemd.in/api/medicine_details/"
+    },
+    {
+      "path": "/apiAllSaltsFromBase",
+      "proxyUrl": "https://chiron-backend.herokuapp.com/api/salts"
+    },
+    {
+      "path": "/apiSalt",
+      "proxyUrl": "https://chiron-backend.herokuapp.com/api/salt"
+    }
+    ]
+}

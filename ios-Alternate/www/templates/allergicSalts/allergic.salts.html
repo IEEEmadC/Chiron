@@ -1,0 +1,74 @@
+
+<ion-view view-title=''>
+  <ion-content overflow-scroll="true" scroll="true">
+    <div id="con" class="im-wrapper">
+      <div>
+        <div>
+        <button class="button pull-right button-icon icon ion-trash-a headicon"
+          ng-click="data.showDelete = !data.showDelete;" ng-hide="vm.previousView[1] == 'probable' || vm.newProbableSaltsAdded.length < 0 ||
+          (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt') || vm.previousView[1] == 'definitive' || vm.newDefiniteSaltsAdded.length < 0 ||
+          (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt') "></button>
+
+        <br>
+        <br>
+        <div class="green-inborder" ng-show="vm.previousView[1] == 'probable' && vm.newProbableSaltsAdded.length &&
+        (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt')">
+        Following salts have been added to <b> Probable Allergies Salt List </b> :
+        <ion-list>
+          <ion-item style="color: rgb(2, 142, 141); font-size: 12px;" ng-repeat="allergy in vm.newProbableSaltsAdded">
+          {{allergy}}
+        </ion-item>
+      </ion-list>
+      </div>
+      <div class="green-inborder" ng-show="vm.previousView[1] == 'definitive' && vm.newDefiniteSaltsAdded.length &&
+      (vm.previousView[0] == 'app.saltSelection' || vm.previousView[0] == 'app.addSalt')">
+        Following salts have been added to <b> Definite Allergies Salt List </b> :
+        <ion-list>
+          <ion-item style="color: rgb(2, 142, 141); font-size: 12px;" ng-repeat="allergy in vm.newDefiniteSaltsAdded">
+          {{allergy}}
+        </ion-item>
+        </ion-list>      </div>
+      </div>
+      <br>
+
+      <div class='inborder'>
+        <h4 class='greenhead' style="font-size: 16px">Definite Allergies Salt List</h4>
+        <ion-list ng-hide="vm.definiteAllergicSalts.length"><ion-item>
+          None
+        </ion-item></ion-list>
+        <ion-list show-delete="data.showDelete">
+          <ion-item ng-repeat="allergy in vm.definiteAllergicSalts">
+            {{allergy}}
+            <ion-delete-button class="ion-minus-circled"
+                               ng-click="vm.onDefiniteItemDelete(allergy)">
+            </ion-delete-button>
+          </ion-item>
+        </ion-list>
+      </div>
+      <br>
+      <div class='inborder'>
+      <h4 class='greenhead' style="font-size: 16px">Probable Allergies Salt List</h4>
+      <ion-list ng-hide="vm.probableAllergicSalts.length"><ion-item>
+        None
+      </ion-item></ion-list>
+      <ion-list show-delete="data.showDelete">
+        <ion-item ng-repeat="allergy in vm.probableAllergicSalts">
+          {{allergy}}
+          <ion-delete-button class="ion-minus-circled"
+                             ng-click="vm.onProbableItemDelete(allergy)">
+          </ion-delete-button>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
+      <!-- <div class="flat center-div">
+      </div> -->
+    </div>
+    <br>
+    <br>
+    <div class="bar-footer">
+      <button class="bottomButton2" style="height:60px !important" ng-click="vm.goHome()">Home</button>
+    </div>
+  </ion-content>
+</ion-view>

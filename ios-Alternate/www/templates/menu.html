@@ -1,0 +1,52 @@
+﻿
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="blue-header">
+            <ion-nav-back-button class="no-text">
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+
+        </ion-nav-bar>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" ng-controller="MenuComponentCtrl as vm">
+        <ion-header-bar class="expanded">
+            <img src="img/icon.png" class="avatar motion spin fade">
+            <div class="menu-bottom">
+                Chiron
+            </div>
+        </ion-header-bar>
+        <ion-content class="stable-bg has-expanded-header">
+            <ion-list>
+              <ion-item nav-clear menu-close href="#/app/welcome">
+                  Home
+              </ion-item>
+                <ion-item nav-clear menu-close href="#/app/checkMedicineSearch">
+                    Check Medicine
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/searchMedicine">
+                    Add Allergic Medicines
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/searchSalt">
+                  Add Allergic Salts
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/allergicSalts">
+                    Allergic Salts List
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/futureProspects">
+                    Future Prospects
+                </ion-item>
+                <!-- <ion-item nav-clear menu-close href="#/app/about">
+                    About
+                </ion-item> -->
+                <ion-item nav-clear menu-close ng-click="vm.logout()">
+                    Logout
+                </ion-item>
+            </ion-list>
+        </ion-content>
+        <div class="version-num"><b>v0.2.12</b> <br>Functional Prototype [Unreleased]</div>
+    </ion-side-menu>
+</ion-side-menus>

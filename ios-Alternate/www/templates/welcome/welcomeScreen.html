@@ -1,0 +1,43 @@
+﻿
+<ion-view title=''>
+    <ion-content overflow-scroll="true" scroll="true">
+        <div class="hellodiv bar-subheader text-center">
+          <img src="img/mainbg.jpg"></img>
+          <p style="position: absolute; top: 17%; left: 5%; font-size: 10vw; color: #ffffff">Hey {{vm.userActualName}}!</p>
+          <p style="position: absolute; top: 23%; left: 5%; font-size: 6vw; color: #ffffff">Welcome to Chiron...</p>
+        </div>
+        <br><br>
+        <div style="display:inline-block;width: 50%; height: 23%; word-wrap:break-word; position: relative">
+          <div id="ring-content" style="position: relative; left:30%">
+            <div id="first-ring">
+
+            </div>
+            <div class="container active" data-index="1">
+              <center><div class="value">{{vm.numDefiniteAllergens}}</div></center>
+            </div>
+          </div>
+          <p style="position: relative; left:27%; margin-top: 10px;">Definite Allergens</p>
+        </div>
+        <div style="display:inline-block;width: 50%; height: 23%; word-wrap:break-word; position: absolute; left:50%">
+          <div id="ring-content" style="position: relative; left:10%">
+            <div id="first-ring">
+            </div>
+            <div class="container active" data-index="1">
+              <center><div class="value">{{vm.numProbableAllergens}}</div></center>
+            </div>
+          </div>
+          <p style="position: relative; left:13%; margin-top: 10px;">Probable Allergens</p>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <p style="font-style:italic; color: #827d7d; margin-left: 5%; margin-right: 5%">
+          <!-- <span style="font-size: 24px">'</span> -->
+          "Genetics plays a big role in allergies. Make sure you thank your parents."
+      </p>
+
+
+        <button class="bottomButton2" ng-click="vm.goToMedicineSearch()">Check Medicine</button>
+    </ion-content>
+</ion-view>
