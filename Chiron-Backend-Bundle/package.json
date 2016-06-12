@@ -1,0 +1,24 @@
+{
+  "name": "allure_backend",
+  "version": "1.0.0",
+  "description": "Setting up the REST API",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makrandgupta/allure_backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makrandgupta/allure_backend/issues"
+  },
+  "homepage": "https://github.com/makrandgupta/allure_backend#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.20"
+  }
+}
