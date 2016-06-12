@@ -78,8 +78,6 @@
       angular.forEach(getUsers(), function(user){
         if (localStorage.sessionPresentUser === user.username){
           setPresentUser(user);
-          console.log('user.P', user.probableAllergicSalts);
-          console.log('user.D', user.definitiveAllergicSalts);
           MedicineService.probableAllergicSalts = user.probableAllergicSalts;
           MedicineService.definiteAllergicSalts = user.definiteAllergicSalts;
         }

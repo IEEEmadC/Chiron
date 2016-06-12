@@ -3,14 +3,30 @@
     <ion-content class="fill">
         <div class="hellodiv bar-subheader text-center">
           <img src="img/mainbg.jpg"></img>
-            <strong class="title">Welcome BC</strong>
+          <p style="position: absolute; top: 17%; left: 5%; font-size: 10vw; color: #ffffff">Hey {{vm.userActualName}}!</p>
+          <p style="position: absolute; top: 23%; left: 5%; font-size: 6vw; color: #ffffff">Welcome to Chiron...</p>
         </div>
-        <br>
-        <div style="display:inline-block;width: 50%; height: 20%; overflow:hidden; word-wrap:break-word">
-          <img style="max-width: 100%; max-height: 100%; min-width: 0; min-height:0; position: relative; left:25%" src="img/circle.png"></img>
+        <br><br><br>
+        <div style="display:inline-block;width: 50%; height: 23%; word-wrap:break-word; position: relative">
+          <div id="ring-content" style="position: relative; left:30%">
+            <div id="first-ring">
+
+            </div>
+            <div class="container active" data-index="1">
+              <center><div class="value">{{vm.numDefiniteAllergens}}</div></center>
+            </div>
+          </div>
+          <p style="position: relative; left:27%; margin-top: 10px;">Definite Allergens</p>
         </div>
-        <div style="display:inline-block;width: 50%; height: 20%; overflow:hidden; word-wrap:break-word; position: absolute; left:50%">
-          <img style="max-width: 100%; max-height: 100%; min-width: 0; min-height:0; position: relative; left:5%" src="img/circle.png"></img>
+        <div style="display:inline-block;width: 50%; height: 23%; word-wrap:break-word; position: absolute; left:50%">
+          <div id="ring-content" style="position: relative; left:10%">
+            <div id="first-ring">
+            </div>
+            <div class="container active" data-index="1">
+              <center><div class="value">{{vm.numProbableAllergens}}</div></center>
+            </div>
+          </div>
+          <p style="position: relative; left:13%; margin-top: 10px;">Probable Allergens</p>
         </div>
 
         <button class="bottomButton" ng-click="vm.goToMedicineSearch()">Check Medicine</button>

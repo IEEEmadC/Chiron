@@ -165,7 +165,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             'menuContent': {
                 templateUrl: 'templates/welcome/welcomeScreen.html',
                 controller: 'welcomeScreenController as vm'
-            }
+            },
+        onEnter: function($timeout){
+          $timeout(function(){}, 100);
+          }
         }
     })
 
