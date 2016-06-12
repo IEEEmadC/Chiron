@@ -13,3 +13,6 @@ It holds the files which host the server for the REST API calls functioning on t
 
 ## Chiron-Salts-Scrapping
 Contains Python script used to scrape data from TrueMD.in to create the database for salts.  
+
+
+**[android has issue with keyboard due to noted bugs in ionic-plugin-keyboard]**
