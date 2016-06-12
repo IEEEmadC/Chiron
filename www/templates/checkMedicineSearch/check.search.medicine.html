@@ -1,15 +1,15 @@
 ﻿
 <ion-view view-title=''>
     <ion-content>
-        <div class="im-wrapper center-div thick flat">
-          <div style="margin-top: 20%;">
+        <div class="im-wrapper center-div thick">
+          <div style="margin-top: 35%;">
             <h4 class='greenhead'>Search Medicine</h4>
-            Enter a name, and click 'Search' to get suggestions <br> [In a Rock n Roll way]
+            Enter a name, and click 'Search' to get suggestions
           </div>
-          <div style="margin-top: 20%">
+          <div style="margin-top: 15%">
             <form>
             <input type='text' ng-model='vm.searchMedString' placeholder="Medicine Name..." required>
-            <button style="margin-top: 5%" ng-click="vm.searchMedicine()">Search</button>
+            <button class="bottomButton2" ng-click="vm.searchMedicine()">Search</button>
           </div>
         </div>
     </ion-content>

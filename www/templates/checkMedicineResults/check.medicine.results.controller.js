@@ -6,7 +6,7 @@
   .controller('checkMedicineResultsController', checkMedicineResultsController);
 
   // LoginController.$inject = ['$location', 'UserService'];
-  function checkMedicineResultsController($timeout, $state, UserService, MedicineService, $ionicHistory, $ionicLoading, $scope, $ionicPopup) {
+  function checkMedicineResultsController($timeout,  $ionicViewService, $state, UserService, MedicineService, $ionicHistory, $ionicLoading, $scope, $ionicPopup) {
     var vm = this;
     vm.allergicProbableSalts = [];
     vm.allergicDefiniteSalts = [];
@@ -14,6 +14,11 @@
     vm.checkSaltForRedColor = checkSaltForRedColor;
     vm.cehckSaltForGreenColor = checkSaltForGreenColor;
     vm.salts = [];
+    vm.goHome = goHome;
+
+    $ionicViewService.nextViewOptions({
+   disableBack: true
+});
     // vm.goBack = goBack;
     // vm.notSure = notSure;
     // vm.finalSure = finalSure;
@@ -102,6 +107,10 @@
 
       function checkSaltForGreenColor(salt){
         return !(vm.allergicDefiniteSalts.indexOf(salt) > -1 || vm.allergicProbableSalts.indexOf(salt) > -1);
+      }
+
+      function goHome(){
+        $state.go('app.welcome');
       }
     }
 

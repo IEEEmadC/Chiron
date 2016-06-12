@@ -1,12 +1,12 @@
 ﻿
 <ion-view view-title=''>
     <ion-content>
-        <div class="im-wrapper center-div thick flat">
-          <div style="margin-top: 20%;">
-            <h4 class='greenhead'>Add Allergic Salt</h4>
-            Enter a name, and choose a category. Click 'Add' to save the allergic salt.<br><br>
+        <div class="im-wrapper center-div thick">
+          <div style="margin-top: 30%;">
+            <h3 class='greenhead'>Add Allergic Salt</h3>
+            Enter a name, and choose a category. Click 'Add' to save the allergic salt.<br><br><br>
 
-            <b>Selected Salt: {{vm.salt.addedSalt}}</b><br><br><br>
+            <h4 class='greenhead'>Selected Salt: {{vm.salt.addedSalt}}</h4><br><br>
             <!-- <input type='text' ng-model='vm.salt.addedSalt' placeholder="Salt Name..." required><br><br> -->
             Choose a category:
             <center>
@@ -16,7 +16,7 @@
               </ion-radio>
             </ion-list>
 
-            <button class="flat" style="margin-top: 5%" ng-click="vm.addSalt()">Add</button>
+            <button class="bottomButton2" style="margin-top: 5%" ng-click="vm.addSalt()">Add</button>
           </center>
           </div>
         </div>

@@ -8,8 +8,8 @@
     MedicineService.previousView = [];
     vm.goToMedicineSearch = goToMedicineSearch;
     vm.userActualName = UserService.getPresentUser().firstName;
-    vm.numDefiniteAllergens = MedicineService.probableAllergicSalts.length;
-    vm.numProbableAllergens = MedicineService.definiteAllergicSalts.length;
+    vm.numDefiniteAllergens = MedicineService.definiteAllergicSalts.length;
+    vm.numProbableAllergens = MedicineService.probableAllergicSalts.length;
 
 
     function load(){
@@ -18,6 +18,6 @@
     }
 
     function goToMedicineSearch(){
-      $state.go('app.searchMedicine');
+      $state.go('app.checkMedicineSearch');
     }
 });

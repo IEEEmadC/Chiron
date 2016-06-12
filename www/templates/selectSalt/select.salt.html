@@ -1,12 +1,18 @@
 
 <ion-view view-title=''>
   <ion-content>
-    <div class="im-wrapper thick flat">
-      <ion-list ng-show="vm.suggestions.length">
+    <div id="con" class="im-wrapper thick">
+      <div ng-show="vm.suggestions.length">
+      <ion-list >
         <ion-item ng-repeat="suggestion in vm.suggestions" ng-model="vm.selectedSuggestion" ng-click="vm.selectedS(suggestion)">
           {{suggestion}}
         </ion-item>
       </ion-list>
+      <br><br>
+      <div>
+      <button class="bottomButton2" style="margin-top: 5%; height: 60px !important;" ng-click="vm.sendBackToSearch()">Search again</button>
+    </div>
+    </div>
       <div ng-hide='vm.suggestions.length' class="center-div margin-top-30">
       <h4> Sorry, no salt found. </h4>
 
@@ -14,14 +20,15 @@
       Enter a name (If possible, go Case-Senstive!), and click 'Add' to save the update salts database.<br><br>
       <input type='text' ng-model='vm.saltForDatabase' placeholder="Salt Name..." required><br><br>
 
-      <button class="flat" style="margin-top: 5%" ng-disabled="!(vm.saltForDatabase != '' && vm.saltForDatabase != null && vm.saltForDatabase != undefined)" ng-click="vm.addSaltToDatabase()">Add to Database</button>
+      <button class="bottomButton4" style="margin-top: 5%" ng-disabled="!(vm.saltForDatabase != '' && vm.saltForDatabase != null && vm.saltForDatabase != undefined)" ng-click="vm.addSaltToDatabase()">Add to Database</button>
     </center>
-      </div>
-      <div class="flat center-div">
+
+      <div class="center-div">
       <div ng-show="vm.additionSuccessful">
         <br>Database Updated!<b> {{vm.addedSalt}} has been added. </b> <br>Search again, you should find your salt.<br>
       </div>
-      <button  style="margin-top: 5%" ng-click="vm.sendBackToSearch()">Search again</button>
+      <button class="bottomButton2" style="margin-top: 5%" ng-click="vm.sendBackToSearch()">Search again</button>
+      </div>
     </div>
   </div>
   </ion-content>

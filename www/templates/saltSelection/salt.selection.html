@@ -14,12 +14,12 @@
           {{salt.name}}
       </ion-checkbox>
       </div>
-      <div class="flat center-div">
-      <button ng-hide="vm.salts.length == 1" ng-click="vm.notSure()">I'm not sure</button>
-      <button class="flat" ng-click="vm.finalSure()" ng-disabled="!vm.checkSingleItemSelected()" >Save Selected</button>
+      <div class="center-div">
+      <button class="bottomButton3" ng-hide="vm.salts.length == 1" ng-click="vm.notSure()">I'm not sure</button>
+      <button class="bottomButton4" ng-click="vm.finalSure()" ng-disabled="!vm.checkSingleItemSelected()" >Save Selected</button>
     </div>
-    <div class="flat center-div">
-      <button ng-click="vm.goBack()">Back</button>
+    <div class="center-div">
+      <button class="bottomButton2" ng-click="vm.goBack()">Back</button>
     </div>
     </div>
   </div>

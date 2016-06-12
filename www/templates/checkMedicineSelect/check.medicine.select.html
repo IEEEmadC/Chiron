@@ -1,18 +1,23 @@
 
 <ion-view view-title="">
   <ion-content>
-    <div class="im-wrapper">
-      <ion-list ng-show="vm.suggestions.length">
+    <div id="con" class="im-wrapper">
+      <div ng-show="vm.suggestions.length">
+      <ion-list>
         <ion-item ng-repeat="suggestion in vm.suggestions" ng-model="vm.selectedSuggestion" ng-click="vm.selectedS(suggestion)">
           {{suggestion}}
         </ion-item>
       </ion-list>
+      <br><br>
+      <div>
+      <button class="bottomButton5" style="height: 60px !important; margin-top: 5%;" ng-click="vm.sendBackToSearch()">Search again</button>
+    </div>
+    </div>
       <div ng-hide='vm.suggestions.length' class="center-div margin-top-30">
       <h4> Sorry, no medicine found. </h4>
-      </div>
-      <div class="flat center-div">
-      <button  style="margin-top: 5%" ng-click="vm.sendBackToSearch()">Search again</button>
+    <button class="bottomButton2" style="margin-top: 5%" ng-click="vm.sendBackToSearch()">Search again</button>
     </div>
+      </div>
   </div>
   </ion-content>
 </ion-view>
