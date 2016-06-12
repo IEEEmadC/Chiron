@@ -6,7 +6,7 @@
   .controller('LoginController', LoginController);
 
   // LoginController.$inject = ['$location', 'UserService'];
-  function LoginController($timeout, $state, UserService, $ionicHistory, MedicineService) {
+  function LoginController($timeout, $state, UserService, $ionicHistory, MedicineService, $ionicScrollDelegate) {
     var vm = this;
 
     vm.login = login;
@@ -19,6 +19,15 @@
     });
     vm.username = '';
     vm.password = '';
+
+    var viewScroll = $ionicScrollDelegate.$getByHandle('userMessageScroll');
+     var scroller = document.body.querySelector('#userMessagesView .scroll-content');
+
+     window.addEventListener('native.keyboardshow', keyboardShowHandler);
+     function keyboardShowHandler(e){
+       scroller.style.bottom = e.keyboardHeight + 'px';
+       viewScroll.scrollBottom();
+     }
     return;
 
     function login() {

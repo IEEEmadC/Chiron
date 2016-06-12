@@ -601,3 +601,7 @@ body.keyboard-open .platform-android .content.overflow-scroll {
 .button-blue{
   background-color: #238fce;
 }
+
+.page-content {
+height: 100%;
+overflow: auto;}
