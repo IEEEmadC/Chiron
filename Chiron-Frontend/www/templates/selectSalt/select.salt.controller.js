@@ -38,7 +38,7 @@
         return vm;
 
         function sendBackToSearch(){
-          $ionicHistory.goBack();
+          $state.go('app.searchSalt');
         }
 
         function selectedS(selectedSuggestion){
