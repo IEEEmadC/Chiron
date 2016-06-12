@@ -6,7 +6,7 @@
   .controller('checkMedicineResultsController', checkMedicineResultsController);
 
   // LoginController.$inject = ['$location', 'UserService'];
-  function checkMedicineResultsController($timeout,  $ionicViewService, $state, UserService, MedicineService, $ionicHistory, $ionicLoading, $scope, $ionicPopup) {
+  function checkMedicineResultsController($timeout,  $ionicViewService, $state, UserService, MedicineService, $ionicHistory, $ionicLoading, $scope, $ionicPopup, $ionicPlatform) {
     var vm = this;
     vm.allergicProbableSalts = [];
     vm.allergicDefiniteSalts = [];
@@ -16,9 +16,21 @@
     vm.salts = [];
     vm.goHome = goHome;
 
-    $ionicViewService.nextViewOptions({
-   disableBack: true
-});
+    $ionicHistory.nextViewOptions({
+      disableBack: true
+    });
+    var doCustomBack= function() {
+      $state.go('app.welcome');
+      // do something interesting here
+    };
+    // registerBackButtonAction() returns a function which can be used to deregister it
+    var deregisterHardBack= $ionicPlatform.registerBackButtonAction(
+        doCustomBack, 101
+    );
+
+    $scope.$on('$destroy', function() {
+        deregisterHardBack();
+    });
     // vm.goBack = goBack;
     // vm.notSure = notSure;
     // vm.finalSure = finalSure;

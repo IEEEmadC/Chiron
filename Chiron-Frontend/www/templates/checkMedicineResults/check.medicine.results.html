@@ -1,6 +1,6 @@
 <ion-view title=''>
-  <ion-content scroll="false">
-    <div class="im-wrapper" style="margin-top: 10%">
+  <ion-content>
+    <div id="con" class="im-wrapper" style="margin-top: 10%">
       <div ng-show="vm.isAllergy == 'no'">
 
         <div class="green-inborder">
@@ -71,9 +71,11 @@
           </div>
           <button class="pull-right button-icon icon ion-ios-information-outline" ng-click="showPopup()"> </button>
         </div>
-      </div>
-      <button class="bottomButton2" ng-click="vm.goHome()">Home</button>
 
+      <div class="bar-footer">
+      <button class="bottomButton2" ng-click="vm.goHome()">Home</button>
       </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

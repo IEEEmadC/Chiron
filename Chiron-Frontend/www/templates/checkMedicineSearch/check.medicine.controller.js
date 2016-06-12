@@ -6,7 +6,7 @@
         .controller('checkMedicineSearchController', checkMedicineSearchController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function checkMedicineSearchController($timeout, $state, UserService, $rootScope, MedicineService, $scope,  $ionicHistory, $ionicPlatform) {
+    function checkMedicineSearchController($timeout, $state, UserService, $rootScope, MedicineService, $scope,  $ionicHistory, $ionicPlatform, $ionicLoading) {
         var vm = this;
 
         vm.searchMedicine = searchMedicine;

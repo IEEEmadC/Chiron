@@ -6,13 +6,29 @@
         .controller('addSaltController', addSaltController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function addSaltController($timeout, $state, UserService, MedicineService, $scope, $ionicLoading, $ionicHistory, SaltService) {
+    function addSaltController($timeout, $state, UserService, MedicineService, $scope, $ionicLoading, $ionicHistory, SaltService, $ionicPlatform) {
         var vm = this;
         vm.addSalt = addSalt;
         vm.saltTypes = [{type: 'Definite', text: 'Definitely Allergic'},
                         {type: 'Probable', text: 'Probably Allergic'}]
         vm.salt = {saltType:'Definite'};
         vm.salt.addedSalt = SaltService.selectedSalt;
+
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        var doCustomBack= function() {
+          $state.go('app.welcome');
+          // do something interesting here
+        };
+        // registerBackButtonAction() returns a function which can be used to deregister it
+        var deregisterHardBack= $ionicPlatform.registerBackButtonAction(
+            doCustomBack, 101
+        );
+
+        $scope.$on('$destroy', function() {
+            deregisterHardBack();
+        });
 
         return vm;
 

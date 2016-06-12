@@ -6,7 +6,7 @@
         .controller('searchSaltController', searchSaltController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function searchSaltController($timeout, $state, UserService, $rootScope, SaltService, $scope,  $ionicHistory, $ionicPlatform) {
+    function searchSaltController($timeout, $state, UserService, $rootScope, SaltService, $scope,  $ionicHistory, $ionicPlatform, $ionicLoading) {
         var vm = this;
 
         vm.searchSalt = searchSalt;

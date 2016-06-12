@@ -6,12 +6,27 @@
         .controller('saltSelectionController', saltSelectionController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function saltSelectionController($timeout, $state, UserService, MedicineService, $ionicHistory, $ionicLoading) {
+    function saltSelectionController($timeout, $state, UserService, MedicineService, $ionicHistory, $ionicLoading, $scope, $ionicPlatform) {
         var vm = this;
         vm.goBack = goBack;
         vm.notSure = notSure;
         vm.finalSure = finalSure;
         vm.checkSingleItemSelected = checkSingleItemSelected;
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+        var doCustomBack= function() {
+          $state.go('app.welcome');
+          // do something interesting here
+        };
+        // registerBackButtonAction() returns a function which can be used to deregister it
+        var deregisterHardBack= $ionicPlatform.registerBackButtonAction(
+            doCustomBack, 101
+        );
+
+        $scope.$on('$destroy', function() {
+            deregisterHardBack();
+        });
 
         load();
         return vm;
