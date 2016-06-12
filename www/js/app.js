@@ -108,8 +108,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         cache: false,
         views: {
             'menuContent': {
-                templateUrl: 'templates/futureProspects/future.prospects.html'
-                // controller: 'selectMedicineController as vm'
+                templateUrl: 'templates/futureProspects/future.prospects.html',
+                controller: 'futureProspectsController as vm'
             }
         }
     })
