@@ -12,10 +12,20 @@ app.run(function ($ionicPlatform) {
 
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+            // ionic.Platform.fullScreen(false, true);
         }
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
+        window.addEventListener('native.keyboardshow', function (e) {
+        var deviceHeight = window.innerHeight;
+        var keyboardHeight = e.keyboardHeight;
+        var deviceHeightAdjusted = deviceHeight - keyboardHeight;//device height adjusted
+        deviceHeightAdjusted = deviceHeightAdjusted < 0 ? (deviceHeightAdjusted * -1) : deviceHeightAdjusted;//only positive number
+        document.getElementById('page').style.height = deviceHeightAdjusted + 'px';//set page height
+        document.getElementById('page').setAttribute('keyBoardHeight', keyboardHeight);//save keyboard height
+      });
     });
 })
 

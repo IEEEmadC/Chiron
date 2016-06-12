@@ -6,7 +6,7 @@
         .controller('allergicSaltsController', allergicSaltsController);
 
     // LoginController.$inject = ['$location', 'UserService'];
-    function allergicSaltsController($timeout, $scope, $state, UserService, MedicineService, $ionicHistory) {
+    function allergicSaltsController($timeout, $scope, $state, UserService, MedicineService, $rootScope, $ionicHistory, $ionicPlatform) {
         var vm = this;
         vm.probableAllergicSalts = MedicineService.probableAllergicSalts;
         vm.definiteAllergicSalts = MedicineService.definiteAllergicSalts;
@@ -17,6 +17,19 @@
         $ionicHistory.nextViewOptions({
           disableBack: true
         });
+        var doCustomBack= function() {
+          $state.go('app.welcome');
+          // do something interesting here
+        };
+        // registerBackButtonAction() returns a function which can be used to deregister it
+        var deregisterHardBack= $ionicPlatform.registerBackButtonAction(
+            doCustomBack, 101
+        );
+
+        $scope.$on('$destroy', function() {
+            deregisterHardBack();
+        });
+
         $scope.data = {
          showDelete: false
        };

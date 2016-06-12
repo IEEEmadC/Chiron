@@ -1,36 +1,42 @@
+<ion-content scroll="true">
+<div class="im-wrapper center-div thick login">
 
-<div class="im-wrapper center-div thick flat">
-  <div style="margin-top: 20%;">
-        <h4 class='greenhead'>Welcome to Allure</h4>
+  <div style="margin-top:15%;">
+
+        <img style="width:35%" src="img/icon.png"/>
+        <p style="color: #fff; font-size: 6vw">Chiron</p>
+        <!-- <h2 class='greenhead'>Welcome to Chiron</h2> -->
         </div>
-        <div style="margin-top: 10%;">
+        <div style="margin-top: 15%;">
+
+          <p style="color: #fff;font-size: 4vw">Log in into your account</p>
 
           <form name="form" ng-submit="vm.login()" role="form">
               <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
                   <!-- <label for="username">Username</label> -->
                   <input type="text" placeholder="Username" name="username" id="username" class="form-control" ng-model="vm.username" required />
-                  <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                  <span class="error" ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
               </div>
               <br>
               <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
                   <!-- <label for="username">Username</label> -->
                   <input type="password" placeholder="Password" name="password" id="password" class="form-control" ng-model="vm.password" required />
-                  <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                  <span class="error" ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
               </div>
 
-
+              <span class="error" ng-show="vm.error != ''" class="help-block">{{vm.error}}</span>
 
               <div class="form-actions">
-                  <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+                  <button class="bottomButton4 button-green" type="submit" ng-disabled="form.$invalid || vm.dataLoading" >Login</button>
                   <!-- <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
                   <br>
                   <br>
                   <br>
                   <br>
                   <br>
-                  Haven't signed up yet? Register now!<br>
-                  <button ng-click="vm.goToRegister()">Register</a>
+                  <!-- Haven't signed up yet? Register now!<br> -->
+                  <button class="bottomButton2 button-blue" ng-click="vm.goToRegister()">Create Account</a>
               </div>
-              <span ng-show="vm.error != ''" class="help-block">{{vm.error}}</span>
           </form>
       </div>
+</ion-content>
